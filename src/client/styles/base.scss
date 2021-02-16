@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+
+$accent: #7d99ffe5;
+$hover-accent: #7d99ff;
+$text: #333333e5;
+$hover-text: #333333c9;
+$light: #fafafa;
+$grey: #f2f2f2e5;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: $text;
+}
+
+.header {
+    height: 55vh;
+    padding: 0 5%;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    // &__background {
+    //     height: 65vh;
+    //     z-index: -1;
+    // }
+
+    &__container {
+        width: 450px;
+        margin: 1rem;
+
+        @media only screen and (max-width: 1004px) {
+            width: 100%; 
+        }
+    }
+}
+
+#pixabay {
+    height: 100%;
+    object-fit: cover;
+}
+
+#form {
+    &__destination {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &__dates {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.2rem;
+    }
+
+    &__date-return {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &__button-submit {
+        width: 100%;
+        background-color: $accent;
+        color: white;
+        font-weight: 700;
+        border-radius: 7px;
+    }
+
+    &__button-submit:hover {
+        transition: background-color 0.2s ease;
+        background: $hover-accent;
+    }
+}
+
+input {
+    height: 3rem;
+    padding: .9rem;
+    border: 0;
+    font-family: 'Open sans', sans-serif;
+    color: $text;
+    border-radius: 7px;
+    background-color: $grey;
+
+    &:hover {
+        transition: background-color 0.3s ease;
+        background-color: #fafafa;
+    }
+}
+
+h1, h2, h3 {
+    font-family: 'Rozha One', serif;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    padding: 0 5%;
+}
+
+h3 {
+    margin-bottom: 1rem;
+}
+
+.dynamic {
+    display: block;
+    background: $light;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    &__trip {
+        height: 45vh;
+        padding: 2rem 0;
+        font-size: 0.8rem;
+        width: 30%;
+
+        @media only screen and (max-width: 1004px) {
+            width: 60%; 
+        }
+    }
+
+    &__location {
+        margin: 2rem 0;
+    }
+
+    &__temperatures {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+#button-save {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: $text;
+    color: $light;
+    padding-left: 1rem;
+    border-radius: 7px;
+    width: 50%;
+
+    &:hover {
+        transition: background-color 0.3s ease;
+        background-color: $hover-text;
+    }
+}
+
+.plus-icon {
+    width: 3.4rem;
+    height: 3.4rem;
+    align-self: left;
+    margin-right: 0.5rem;
+    margin-left: -0.5rem;
+}
+
+.button-text {
+    font-weight: 800;
+}
+
+.trip-card {
+    display: none;
+    margin: 1rem 0rem;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    border-top: 3px solid $accent;
+    // display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-size: 0.8rem;
+    width: 30%;
+    background: rgb(234 239 253);
+
+    @media only screen and (max-width: 1004px) {
+        width: 60%; 
+    }
+}

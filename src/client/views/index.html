@@ -1,0 +1,68 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
+        <title>Travel Planner</title>
+    </head>
+
+    <body>
+        <header class="header">
+            
+            <h1 class="h1">Welcome to your travel planner!</h1>
+                
+                <div class="header__container" onsubmit="return Client.handleSubmit(event)">
+                    <form id="form" method="POST" action="/">
+                        <input id="form__destination" name="location" type="text" placeholder="Barcelona" required>
+                        <div id="form__dates">
+                            <input id="form__date-return" name="return" type="date" required>
+                        </div>
+                        <input type="submit" id="form__button-submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    </form>
+                </div>
+
+        </header>
+        
+        <main class="dynamic">
+            
+            <div class="dynamic__trip">
+                <div class="dynamic__location">
+                    <p><h2><span id="dynamic__destination"></span></h2><br/><span id="dynamic__countdown"></span> days away!</p>
+                </div>
+                <h3>On <span id="trip-date"></span> you can expect:</h3>
+                <div class="dynamic__temperatures">
+                    <span>Max Temp: <span id="dynamic__high"></span></span><span>Min Temp: <span id="dynamic__low"></span></span>
+                </div>
+
+                <form method="POST" action="/save">
+                    <button type="submit" id="button-save">
+                            <img class="plus-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSIyMCIgcnk9IjIwIiBmaWxsPSIjYmFjOGQzIiBzaGFwZT0icm91bmRlZCIgdHJhbnNmb3JtPSJtYXRyaXgoMC40MywwLDAsMC40Myw5LjEyMDAwMDAwMDAwMDAwMSw5LjEyMDAwMDAwMDAwMDAwMSkiPjwvcmVjdD48ZyB0cmFuc2Zvcm09Im1hdHJpeCgwLjcsMCwwLDAuNyw0LjgwMDAwMDAwMDAwMDAwMSw0LjgwMDAwMDAwMDAwMDAwMSkiPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTI2IDMyaC0yMGMtMy4zMTQgMC02LTIuNjg2LTYtNnYtMjBjMC0zLjMxNCAyLjY4Ni02IDYtNmgyMGMzLjMxNCAwIDYgMi42ODYgNiA2djIwYzAgMy4zMTQtMi42ODYgNi02IDZ6IiBmaWxsPSIjZWFlZmZkIiBkYXRhLW9yaWdpbmFsPSIjZmZlNmUyIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtMTcuNSA4aC03LjY2N2MtMS4wMTMgMC0xLjgzMy44Mi0xLjgzMyAxLjgzM3YxMC4zMzNjMCAxLjAxNC44MiAxLjgzNCAxLjgzMyAxLjgzNGg0LjM5M2MtLjM2LS43Ni0uNTYtMS42MDctLjU2LTIuNSAwLS43NjcuMTQ3LTEuNS40Mi0yLjE3My0uMDI3LjAwNy0uMDUzLjAwNy0uMDg3LjAwN2gtMy4zMzNjLS4zNjcgMC0uNjY3LS4zLS42NjctLjY2N3MuMzAxLS42NjcuNjY4LS42NjdoMy4zMzNjLjI1MyAwIC40OC4xNDcuNTg3LjM2LjQzMy0uNjczLjk5My0xLjI0NyAxLjY1My0xLjY5M2gtNS41NzNjLS4zNjcgMC0uNjY3LS4zLS42NjctLjY2N3MuMy0uNjY3LjY2Ny0uNjY3aDZjLjM2NyAwIC42NjcuMy42NjcuNjY3IDAgLjAzMyAwIC4wNi0uMDA3LjA4Ny42Mi0uMjUzIDEuMy0uNCAyLjAwNy0uNDEzdi0zLjg0Yy0uMDAxLTEuMDE0LS44MjEtMS44MzQtMS44MzQtMS44MzR6bS00LjE2NyA0aC0yLjY2N2MtLjM2NiAwLS42NjYtLjMtLjY2Ni0uNjY3cy4zLS42NjcuNjY3LS42NjdoMi42NjdjLjM2NyAwIC42NjcuMy42NjcuNjY3cy0uMzAxLjY2Ny0uNjY4LjY2N3oiIGZpbGw9IiM3ZDlhZmYiIGRhdGEtb3JpZ2luYWw9IiNmYzU3M2IiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xOS41IDE1Yy0yLjQ4MSAwLTQuNSAyLjAxOS00LjUgNC41czIuMDE5IDQuNSA0LjUgNC41IDQuNS0yLjAxOSA0LjUtNC41LTIuMDE5LTQuNS00LjUtNC41em0xLjgzMyA1LjE2N2gtMS4xNjd2MS4xNjdjMCAuMzY4LS4yOTkuNjY3LS42NjcuNjY3cy0uNjY3LS4yOTktLjY2Ny0uNjY3di0xLjE2N2gtMS4xNjdjLS4zNjYgMC0uNjY1LS4yOTktLjY2NS0uNjY3cy4yOTktLjY2Ny42NjctLjY2N2gxLjE2N3YtMS4xNjdjMC0uMzY4LjI5OS0uNjY3LjY2Ny0uNjY3cy42NjcuMjk5LjY2Ny42Njd2MS4xNjdoMS4xNjdjLjM2OCAwIC42NjcuMjk5LjY2Ny42NjdzLS4zLjY2Ny0uNjY5LjY2N3oiIGZpbGw9IiM0YzcyZjciIGRhdGEtb3JpZ2luYWw9IiNmZDkwN2UiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+"/>
+                            <div class="button-text">Save trip</div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="trip-card">
+                <div class="dynamic__location">
+                    <p><h2><span id="dynamic__destination"></span></h2><br/><span id="dynamic__countdown"></span> days away!</p>
+                </div>            
+                <div class="dynamic__temperatures">
+                    <span>Max Temp: <span id="dynamic__high"></span></span><span>Min Temp: <span id="dynamic__low"></span></span>
+                </div>
+            </div>
+
+        </main>
+    
+    </body>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</html>
